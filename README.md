@@ -46,6 +46,12 @@ I'm not sure about auth yet, but probably NextAuth.
 The project is meant to be self hosted, with a single docker compose file to deploy the application and the database.
 It's still in the early stages of development, so it's not yet ready for production.
 
+I can't get file watching to work with the docker compose file, so I'm running the dev server natively, with postgres in a container.
+
 ## License
 
 This project is licensed under the Mozilla Public License 2.0 - see the LICENSE file for details.
+
+### db command
+
+docker compose exec db psql -U socialdb -d socialdb-db
