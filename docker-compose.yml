@@ -12,20 +12,24 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    container_name: socialdb
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-    restart: unless-stopped
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   container_name: socialdb
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - WATCHPACK_POLLING=true
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   restart: unless-stopped
 
 volumes:
   postgres_data:
