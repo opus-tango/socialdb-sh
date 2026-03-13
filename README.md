@@ -48,10 +48,12 @@ It's still in the early stages of development, so it's not yet ready for product
 
 I can't get file watching to work with the docker compose file, so I'm running the dev server natively, with postgres in a container.
 
+- Use `docker comose up -d` to start the database.
+- Use `docker compose exec db psql -U <POSTGRES_USER> -d <POSTGRES_DB>` to get into the database.
+- Run `CREATE EXTENSION IF NOT EXISTS vector;` to create the vector extension.
+
 ## License
 
 This project is licensed under the Mozilla Public License 2.0 - see the LICENSE file for details.
 
 ### db command
-
-docker compose exec db psql -U socialdb -d socialdb-db
