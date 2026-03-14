@@ -11,9 +11,13 @@ import {
   uuid,
   vector,
 } from "drizzle-orm/pg-core";
+import { user } from "../../auth-schema";
 
 export const dataKeys = pgTable("data_keys", {
   id: uuid("id").defaultRandom().primaryKey(),
+  userId: text("user_id").references(() => user.id, {
+    onDelete: "cascade",
+  }),
   name: text("name").notNull(),
   group: text("group"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
@@ -22,6 +26,9 @@ export const dataKeys = pgTable("data_keys", {
 
 export const activityDefinitions = pgTable("activity_definitions", {
   id: uuid("id").defaultRandom().primaryKey(),
+  userId: text("user_id").references(() => user.id, {
+    onDelete: "cascade",
+  }),
   name: text("name").notNull(),
   group: text("group"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
@@ -32,6 +39,9 @@ export const person = pgTable(
   "person",
   {
     id: uuid("id").defaultRandom().primaryKey(),
+    userId: text("user_id").references(() => user.id, {
+      onDelete: "cascade",
+    }),
     name: text("name").notNull(),
     primaryEmail: text("primary_email").unique(),
     primaryPhone: text("primary_phone"),
@@ -52,6 +62,9 @@ export const reports = pgTable(
   "reports",
   {
     id: uuid("id").defaultRandom().primaryKey(),
+    userId: text("user_id").references(() => user.id, {
+      onDelete: "cascade",
+    }),
     name: text("name").notNull(),
     subtitle: text("subtitle"),
     group: text("group"),
