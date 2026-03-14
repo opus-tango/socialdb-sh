@@ -16,6 +16,7 @@ Monica, but none of them quite fit my needs.
 
 ## Planned Features
 
+- [x] Better Auth for authentication
 - [ ] Creating and viewing people
 - [ ] Creating and viewing activities
 - [ ] Creating and viewing reports
@@ -51,9 +52,13 @@ I can't get file watching to work with the docker compose file, so I'm running t
 - Use `docker comose up -d` to start the database.
 - Use `docker compose exec db psql -U <POSTGRES_USER> -d <POSTGRES_DB>` to get into the database.
 - Run `CREATE EXTENSION IF NOT EXISTS vector;` to create the vector extension.
+- Run `pnpm dlx drizzle-kit generate` to generate the migrations.
+- Run `pnpm dlx drizzle-kit migrate` to migrate the database.
 
 ## License
 
 This project is licensed under the Mozilla Public License 2.0 - see the LICENSE file for details.
 
-### db command
+### shadcn preset
+
+a1Ep34uG
