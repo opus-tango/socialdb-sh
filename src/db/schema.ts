@@ -173,3 +173,38 @@ export const activityReports = pgTable(
     index("idx_activity_reports_report").on(table.reportId),
   ],
 );
+
+export const relationshipTypes = pgTable("relationship_types", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  name: text("name").notNull(),
+  group: text("group"),
+  userId: text("user_id").references(() => user.id, {
+    onDelete: "cascade",
+  }),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+});
+
+export const relationships = pgTable(
+  "relationships",
+  {
+    person1Id: uuid("person1_id").references(() => person.id, {
+      onDelete: "cascade",
+    }),
+    person2Id: uuid("person2_id").references(() => person.id, {
+      onDelete: "cascade",
+    }),
+    relationshipTypeId: uuid("relationship_type_id").references(
+      () => relationshipTypes.id,
+      {
+        onDelete: "cascade",
+      },
+    ),
+  },
+  (table) => [
+    primaryKey({ columns: [table.person1Id, table.person2Id] }),
+    index("idx_relationships_person1").on(table.person1Id),
+    index("idx_relationships_person2").on(table.person2Id),
+    index("idx_relationships_relationship_type").on(table.relationshipTypeId),
+  ],
+);

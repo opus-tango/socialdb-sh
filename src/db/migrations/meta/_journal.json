@@ -15,6 +15,13 @@
       "when": 1773582364110,
       "tag": "0001_famous_karma",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773582870525,
+      "tag": "0002_remarkable_meggan",
+      "breakpoints": true
     }
   ]
 }
