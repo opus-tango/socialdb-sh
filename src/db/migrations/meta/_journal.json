@@ -8,6 +8,13 @@
       "when": 1773509755516,
       "tag": "0000_flat_sabra",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773582364110,
+      "tag": "0001_famous_karma",
+      "breakpoints": true
     }
   ]
 }

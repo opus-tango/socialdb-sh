@@ -20,6 +20,7 @@ export const dataKeys = pgTable("data_keys", {
   }),
   name: text("name").notNull(),
   group: text("group"),
+  num_people: integer("num_people").default(0),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });

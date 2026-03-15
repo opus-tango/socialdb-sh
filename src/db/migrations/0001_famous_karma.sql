@@ -1,0 +1,1 @@
+ALTER TABLE "data_keys" ADD COLUMN "num_people" integer DEFAULT 0;
